@@ -1,0 +1,184 @@
+[
+  {
+    "id": "arrowlock",
+    "title": "Arrowlock",
+    "tagline": "Every arrow wants out. Only some of them can go yet.",
+    "version": "1.0.0",
+    "url": "https://hexcave.github.io/prism-games/games/arrowlock/1.0.0/"
+  },
+  {
+    "id": "cascade",
+    "title": "Cascade",
+    "tagline": "One photon becomes two. Then it gets out of hand.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/cascade/1.1.1/"
+  },
+  {
+    "id": "caustic",
+    "title": "Caustic",
+    "tagline": "Sixty holes. The ball is light, and the glass has opinions.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/caustic/1.1.1/"
+  },
+  {
+    "id": "chess",
+    "title": "Chess",
+    "tagline": "The whole game, with an opponent that thinks a few moves ahead.",
+    "version": "1.0.0",
+    "url": "https://hexcave.github.io/prism-games/games/chess/1.0.0/"
+  },
+  {
+    "id": "chroma",
+    "title": "Chroma",
+    "tagline": "Red and green make yellow. Yellow and blue make trouble.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/chroma/1.1.1/"
+  },
+  {
+    "id": "cinder",
+    "title": "Cinder",
+    "tagline": "You are one ember, and you are going out.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/cinder/1.1.1/"
+  },
+  {
+    "id": "deep-six",
+    "title": "Deep Six",
+    "tagline": "Six floors down. You will not survive the first few runs.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/deep-six/1.1.1/"
+  },
+  {
+    "id": "facet",
+    "title": "Facet",
+    "tagline": "Three shots at the same board as everyone else.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/facet/1.1.1/"
+  },
+  {
+    "id": "freight",
+    "title": "Freight",
+    "tagline": "Draw the lines. The crates keep coming either way.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/freight/1.1.1/"
+  },
+  {
+    "id": "hex-drift",
+    "title": "Hex Drift",
+    "tagline": "A six-sided tunnel at terminal velocity.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/hex-drift/1.1.1/"
+  },
+  {
+    "id": "kite",
+    "title": "Kite",
+    "tagline": "No engine. Trade height for speed and hope the canyon agrees.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/kite/1.1.1/"
+  },
+  {
+    "id": "lattice",
+    "title": "Lattice",
+    "tagline": "One beam, and everything you own is a mirror.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/lattice/1.1.1/"
+  },
+  {
+    "id": "lumen",
+    "title": "Lumen",
+    "tagline": "Take white light apart and put it back where it belongs.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/lumen/1.1.1/"
+  },
+  {
+    "id": "morsel",
+    "title": "Morsel",
+    "tagline": "Clear the maze. Four things in it would rather you did not.",
+    "version": "1.0.0",
+    "url": "https://hexcave.github.io/prism-games/games/morsel/1.0.0/"
+  },
+  {
+    "id": "neon-snake",
+    "title": "Neon Snake",
+    "tagline": "Eat the light. Don't eat yourself.",
+    "version": "1.2.1",
+    "url": "https://hexcave.github.io/prism-games/games/neon-snake/1.2.1/"
+  },
+  {
+    "id": "orbital",
+    "title": "Orbital",
+    "tagline": "One burn. After that it is just gravity.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/orbital/1.1.1/"
+  },
+  {
+    "id": "prism-breaker",
+    "title": "Prism Breaker",
+    "tagline": "Twelve levels of light, one paddle between them.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/prism-breaker/1.1.1/"
+  },
+  {
+    "id": "pulse",
+    "title": "Pulse",
+    "tagline": "Four lanes, three tracks, no forgiveness.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/pulse/1.1.1/"
+  },
+  {
+    "id": "sherbet",
+    "title": "Sherbet",
+    "tagline": "Swap two sweets, line up three, and hope it keeps going.",
+    "version": "1.0.0",
+    "url": "https://hexcave.github.io/prism-games/games/sherbet/1.0.0/"
+  },
+  {
+    "id": "signal-lost",
+    "title": "Signal Lost",
+    "tagline": "The ping is the only way to see. It is also how they find you.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/signal-lost/1.1.1/"
+  },
+  {
+    "id": "splinter",
+    "title": "Splinter",
+    "tagline": "Your beam splits on everything it touches. Aim into the crowd.",
+    "version": "1.1.2",
+    "url": "https://hexcave.github.io/prism-games/games/splinter/1.1.2/"
+  },
+  {
+    "id": "stackwave",
+    "title": "Stackwave",
+    "tagline": "Every slab you misjudge, you lose forever.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/stackwave/1.1.1/"
+  },
+  {
+    "id": "sudoku",
+    "title": "Sudoku",
+    "tagline": "Nine by nine, one of each, no guessing required.",
+    "version": "1.0.0",
+    "url": "https://hexcave.github.io/prism-games/games/sudoku/1.0.0/"
+  },
+  {
+    "id": "tessera",
+    "title": "Tessera",
+    "tagline": "Four squares at a time, and the floor is coming up to meet you.",
+    "version": "1.0.0",
+    "url": "https://hexcave.github.io/prism-games/games/tessera/1.0.0/"
+  },
+  {
+    "id": "umbra",
+    "title": "Umbra",
+    "tagline": "Down doubles it. Down might also end it.",
+    "version": "1.1.1",
+    "url": "https://hexcave.github.io/prism-games/games/umbra/1.1.1/"
+  },
+  {
+    "id": "untangle",
+    "title": "Untangle",
+    "tagline": "It is a mess of crossed lines. It does not have to be.",
+    "version": "1.0.0",
+    "url": "https://hexcave.github.io/prism-games/games/untangle/1.0.0/"
+  }
+]

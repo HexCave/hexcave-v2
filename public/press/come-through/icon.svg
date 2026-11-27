@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
+  <defs>
+    <radialGradient id="sage" gradientUnits="userSpaceOnUse" cx="25" cy="4" r="113">
+      <stop stop-color="#1e3029" stop-opacity=".54902"/>
+      <stop offset="1" stop-color="#1e3029" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue" gradientUnits="userSpaceOnUse" cx="87" cy="99" r="92">
+      <stop stop-color="#182430" stop-opacity=".380392"/>
+      <stop offset="1" stop-color="#182430" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="#0c1112" d="M0,0 h108 v108 h-108 Z"/>
+  <path fill="url(#sage)" d="M0,0 h108 v108 h-108 Z"/>
+  <path fill="url(#blue)" d="M0,0 h108 v108 h-108 Z"/>
+  <path fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" d="M54,28 a26,26 0 1,0 0.01,0 Z"/>
+  <path fill="#fff" d="M54,54 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0 Z"/>
+</svg>
