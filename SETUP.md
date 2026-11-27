@@ -1,6 +1,6 @@
 # Setup
 
-1. Node 20+ (`node --version`).
+1. Node 24 LTS (`node --version`).
 2. `npm install`
 3. `npm run dev` → http://localhost:4321/hexcave-v2/
 

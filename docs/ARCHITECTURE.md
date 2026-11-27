@@ -63,7 +63,16 @@ set `BASE=/` and `SITE=https://hexcave.com` in the workflow, push. Documented in
 - `npm run check` (`astro check`) for types.
 - Lighthouse (mobile) and an axe pass are run by hand before each deploy; results noted in the
   log, not automated in CI (judgement: four pages do not justify a CI browser).
-- Not tested: how the Play badge and OG cards render in every app. Spot-checked in WhatsApp and X.
+- 2026-11-28 local production build, Chrome 158, Lighthouse 13.6 mobile. Home scored 99
+  for performance and 100 for accessibility, best practices and SEO. All four product pages
+  scored 100 in all four categories.
+- Axe 4.14 reported zero WCAG A/AA findings across all seven pages in light and dark. We
+  checked the first viewport at 390 × 844 and 1440 × 900, reflow at 320 CSS pixels and
+  200% browser zoom, and keyboard navigation with JavaScript disabled.
+- Both the preview base and the custom-domain root passed checks on internal links,
+  fragments, downloads, image dimensions and alt attributes, metadata and sitemaps.
+  The published HTML contains no scripts. Messaging-app card previews and email delivery
+  still need a check on the deployed domain.
 
 ## Deviations
 
