@@ -32,11 +32,27 @@ function policies(slug: string) {
   ];
 }
 
-export const principleTitles = {
-  account: 'No account needed',
-  offline: 'Works offline',
-  pauses: 'Full-screen ads at natural pauses',
-  original: 'Original work',
+export const studioPrinciples = {
+  account: {
+    title: 'No account needed',
+    summary: 'Start a Hushcoil puzzle or take a seat in Ludo without signing up.',
+    products: ['hushcoil', 'ludo'],
+  },
+  offline: {
+    title: 'Works offline',
+    summary: 'Play Hushcoil or pass one phone around for Ludo without a connection.',
+    products: ['hushcoil', 'ludo'],
+  },
+  pauses: {
+    title: 'Full-screen ads at natural pauses',
+    summary: 'Hushcoil waits until a level ends. Ludo waits until the game ends.',
+    products: ['hushcoil', 'ludo'],
+  },
+  original: {
+    title: 'Original work',
+    summary: 'We generate Hushcoil’s levels and draw Ludo’s board and dice. We wrote three tracks for Pulse, our Prism rhythm game.',
+    products: ['hushcoil', 'ludo', 'prism'],
+  },
 };
 
 export interface Product {
@@ -49,7 +65,7 @@ export interface Product {
   link?: string;
   about: string;
   facts: [string, string][];
-  principles: Partial<Record<keyof typeof principleTitles, string>>;
+  principles: Partial<Record<keyof typeof studioPrinciples, string>>;
   legal?: ReturnType<typeof policies>;
   icon?: { src: string | ImageMetadata; file: string };
   screenshots: Shot[];
@@ -126,9 +142,9 @@ export const products: Product[] = [
     link: 'prism/#games', games: true,
     about: 'In Arrowlock, you work out which arrow has room to leave. Hex Drift puts you inside a six-sided tunnel. Pick a game below to open it in its own tab.',
     facts: [
-      ['Catalogue', games.length + ' games. Each has its own play link.'],
-      ['Format', 'Two-dimensional boards and three-dimensional games.'],
-      ['At the chessboard', 'Take on a computer opponent that looks several moves ahead.'],
+      ['Collection', games.length + ' browser games.'],
+      ['Kinds of games', 'Puzzle, arcade, strategy, action, racing, rhythm and idle.'],
+      ['How to play', 'Choose a cover to open the game in a new tab. There’s nothing to install.'],
     ],
     principles: {},
     screenshots: [

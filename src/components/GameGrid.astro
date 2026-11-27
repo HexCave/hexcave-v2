@@ -85,4 +85,9 @@ function coverFor(id: string) {
 
   a:hover h3, a:focus-visible h3 { text-decoration-color: var(--ember); }
   li p { color: var(--ink-2); }
+
+  @media (340px <= width < 36rem) {
+    ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    h3 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  }
 </style>

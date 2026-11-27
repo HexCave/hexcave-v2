@@ -36,6 +36,7 @@ const { product: p, index } = Astro.props;
   .copy h2 { margin: .5rem 0 .85rem; font-size: clamp(3.2rem, 6.4vw, 5.6rem); }
   .copy > p:not(.meta) { max-width: 34ch; }
   .actions { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem 1.25rem; margin-top: 1.5rem; }
+  .actions:has(:global(.badge)) { flex-direction: column; align-items: flex-start; }
   .reverse .plates:not(:has(.solo-icon)) { max-width: 34rem; }
   .landscape .plates { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0; }
   .landscape .plate:first-child { grid-column: 1/7; }

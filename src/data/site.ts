@@ -1,7 +1,7 @@
 export const site = {
   name: 'Hexcave',
   line: 'Hexcave is an independent product and game studio.',
-  introduction: 'We make small apps and games with care for the people who use them.',
+  introduction: 'We have two games on Google Play and twenty-six browser games, and we’re building an ADHD app.',
   email: 'hello@hexcave.com',
   youtube: 'https://www.youtube.com/@hexcave',
   publisher: 'The Only Engineer',

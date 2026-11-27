@@ -14,7 +14,13 @@ const { product, medium } = Astro.props;
   </a>
 )}
 <style>
-  .badge { display: inline-flex; align-items: center; width: 11rem; flex-shrink: 0; }
+  .badge {
+    display: inline-block;
+    width: 11rem;
+    /* The first 41 of the official PNG's 646 pixels are transparent. */
+    margin-inline-start: calc(-11rem * 41 / 646);
+  }
+  .badge img { width: 100%; }
   .play { display: inline-flex; align-items: center; min-height: 44px; padding: .7rem 1.2rem; border-radius: 3px;
     background: var(--ink); color: var(--paper); font-weight: 600; font-size: .9375rem; text-decoration: none; }
   .play:hover { text-decoration: underline; text-decoration-color: var(--ember); }

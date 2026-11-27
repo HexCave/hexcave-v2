@@ -1,24 +1,25 @@
 ---
-import { principleTitles, products, type Product } from '../data/products';
+import { studioPrinciples, products, type Product } from '../data/products';
 import { local } from '../data/site';
 interface Props { product?: Product; }
 const { product } = Astro.props;
-const keys = Object.keys(principleTitles) as (keyof typeof principleTitles)[];
+const keys = Object.keys(studioPrinciples) as (keyof typeof studioPrinciples)[];
 const items = keys.flatMap((key) => {
-  const examples = (product ? [product] : products).filter((p) => p.principles[key]);
-  if (!examples.length) return [];
-  // Each studio principle has one concrete example. Product pages give their own evidence.
-  const example = !product && key === 'offline' ? examples[examples.length - 1] : examples[0];
-  return [{ key, example, text: example.principles[key] }];
+  const principle = studioPrinciples[key];
+  const text = product ? product.principles[key] : principle.summary;
+  const examples = product ? [] : products.filter((p) => principle.products.includes(p.slug));
+  return text ? [{ title: principle.title, text, examples }] : [];
 });
 ---
 {items.length > 0 && <section class="principles" aria-labelledby="principles-heading">
   <h2 id="principles-heading">How we make things</h2>
   <div class="statements">
-    {items.map(({ key, example, text }) => <div>
-      <h3>{principleTitles[key]}</h3>
+    {items.map(({ title, text, examples }) => <div>
+      <h3>{title}</h3>
       <p>{text}</p>
-      {!product && <a class="text-link" href={local(example.slug + '/')}>{example.name} →</a>}
+      {examples.length > 0 && <div class="examples">
+        {examples.map((p) => <a class="text-link" href={local(p.slug + '/')}>{p.name} →</a>)}
+      </div>}
     </div>)}
   </div>
 </section>}
@@ -28,5 +29,6 @@ const items = keys.flatMap((key) => {
   .statements > div { border-top: 1px solid var(--rule); padding-top: 1.2rem; }
   h3 { margin-bottom: .6rem; }
   p, a { color: var(--ink-2); }
+  .examples { display: flex; flex-wrap: wrap; column-gap: 1.25rem; }
   @media(min-width: 46rem) { .statements { grid-template-columns: 1fr 1fr; } }
 </style>
