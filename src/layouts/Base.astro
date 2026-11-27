@@ -1,0 +1,40 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { local, site } from '../data/site';
+import '../styles/global.css';
+
+interface Props { title: string; description: string; path: string; ogImage?: string; ogAlt?: string; }
+const { title, description, path, ogImage = 'og/studio.png', ogAlt = 'Hexcave studio wordmark over cave art' } = Astro.props;
+const canonical = new URL(local(path), Astro.site);
+const image = new URL(local(ogImage), Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={local('favicon.svg')} />
+    <link rel="sitemap" href={local('sitemap-index.xml')} />
+    <link rel="preload" href={local('fonts/instrument-serif-latin.woff2')} as="font" type="font/woff2" crossorigin="anonymous" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={image} />
+    {path === '404.html' && <meta name="robots" content="noindex" />}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main" tabindex="-1"><slot /></main>
+    <Footer />
+  </body>
+</html>

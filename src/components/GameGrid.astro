@@ -1,0 +1,88 @@
+---
+import games from '../data/prism-games.json';
+
+const covers = import.meta.glob<string>('../assets/products/prism/covers/*.svg', {
+  eager: true,
+  query: '?url&no-inline',
+  import: 'default',
+});
+
+function coverFor(id: string) {
+  const cover = covers[`../assets/products/prism/covers/${id}.svg`];
+  if (!cover) throw new Error(`Missing cover for Prism game ${id}. Run scripts/snapshot-prism.mjs.`);
+  return cover;
+}
+---
+
+<section id="games" aria-labelledby="games-heading">
+  <div class="intro">
+    <h2 id="games-heading">Choose a game</h2>
+    <p>Each game opens in a new tab.</p>
+  </div>
+  <ul role="list">
+    {games.map((game) => (
+      <li>
+        <a href={game.url} target="_blank" rel="noopener noreferrer">
+          <img src={coverFor(game.id)} width="480" height="270" alt="" loading="lazy" decoding="async" />
+          <h3>{game.title}</h3>
+          <p>{game.tagline}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  section {
+    padding-block: clamp(4rem, 8vw, 8rem);
+    border-top: 1px solid var(--rule);
+  }
+
+  .intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .intro > *, li p { margin: 0; }
+  .intro p { font-size: .875rem; color: var(--ink-2); }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 2vw, 2rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  }
+
+  a {
+    display: block;
+    height: 100%;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--rule);
+    border-radius: .75rem;
+  }
+
+  h3 {
+    margin: .75rem 0 .25rem;
+    font: 400 2rem/1.15 'Instrument Serif', Georgia, serif;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: .2em;
+  }
+
+  a:hover h3, a:focus-visible h3 { text-decoration-color: var(--ember); }
+  li p { color: var(--ink-2); }
+</style>

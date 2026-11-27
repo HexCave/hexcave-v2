@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import StoreButton from '../components/StoreButton.astro';
+import ScreenshotRow from '../components/ScreenshotRow.astro';
+import Principles from '../components/Principles.astro';
+import FactsList from '../components/FactsList.astro';
+import GameGrid from '../components/GameGrid.astro';
+import { products, statusLabel, type Product } from '../data/products';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+interface Props { product: Product; }
+const { product: p } = Astro.props;
+---
+<Base title={p.name + ' — Hexcave'} description={p.oneLine} path={p.slug + '/'} ogImage={p.ogImage}
+  ogAlt={p.ogImage ? p.name + ' store feature graphic' : undefined}>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="meta">{statusLabel(p)}</p>
+        <h1>{p.name}</h1>
+        <p class="lead">{p.oneLine}</p>
+        <StoreButton product={p} medium="product_page" />
+      </div>
+      {!p.screenshots.length && p.icon && <img class="icon" src={typeof p.icon.src === 'string' ? p.icon.src : p.icon.src.src} width="160" height="160" alt={p.name + ' app icon'} />}
+    </div>
+    {!!p.screenshots.length && <ScreenshotRow product={p} />}
+    <section class="details">
+      <div><h2>About {p.name}</h2><p>{p.about}</p></div>
+      <FactsList facts={p.facts} />
+    </section>
+    {p.games && <GameGrid />}
+    <Principles product={p} />
+    {p.legal && <nav aria-label={p.name + ' policies'} class="policies">
+      {p.legal.map((link) => <a class="text-link" href={link.href}>{link.name}</a>)}
+    </nav>}
+  </div>
+</Base>
+<style>
+  .head { padding-block: var(--section) 3rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .head > div { max-width: 48rem; }
+  h1 { margin: .9rem 0 1.2rem; }
+  .lead { max-width: 42ch; margin-bottom: 1rem; font-size: clamp(1.2rem, 2vw, 1.55rem); }
+  .icon { border-radius: 20px; width: clamp(5rem, 12vw, 10rem); }
+  .details { padding-block: var(--section); display: grid; gap: 2rem; }
+  h2 { margin-bottom: 1.25rem; }
+  .policies { display: flex; gap: 0 2rem; flex-wrap: wrap; padding-block: 1.5rem; border-top: 1px solid var(--rule); }
+  @media(min-width: 960px) {
+    .details { grid-template-columns: var(--columns); column-gap: 1.5rem; }
+    .details > div { grid-column: 1/6; }
+    .details :global(dl) { grid-column: 7/-1; }
+  }
+</style>

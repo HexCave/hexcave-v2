@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { local } from '../data/site';
+---
+<Base title="Page not found — Hexcave" description="Return to the Hexcave product catalogue." path="404.html">
+  <div class="wrap missing"><h1>Page not found.</h1><a class="text-link" href={local()}>Back to Hexcave →</a></div>
+</Base>
+<style>
+  .missing { padding-block: var(--section); }
+  h1 { margin-bottom: 1.5rem; }
+</style>

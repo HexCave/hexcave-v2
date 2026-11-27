@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductImage from '../components/ProductImage.astro';
+import { Picture } from 'astro:assets';
+import { products, statusLabel } from '../data/products';
+import { local, site, storeUrl } from '../data/site';
+const download = (slug: string, file: string) => local('press/' + slug + '/' + file);
+---
+<Base title="Press kit — Hexcave" description="Studio facts, product names, original screenshots and artwork for Hexcave’s apps and games." path="press/">
+  <div class="wrap">
+    <section class="studio">
+      <h1>Press kit</h1>
+      <div class="studio-details">
+        <div>
+          <h2>{site.name}</h2>
+          <p>{site.line}</p>
+          <p>Our apps are published on Google Play as {site.publisher}.</p>
+          <div class="links"><a href={'mailto:' + site.email}>{site.email}</a><a href={site.youtube}>YouTube</a></div>
+        </div>
+        <div class="mark">
+          <img src={local('favicon.svg')} width="96" height="96" alt="Hexcave’s hexagonal cave mark" />
+          <div class="links">
+            <a href={download('studio', 'mark.svg')} download>Mark (SVG)</a>
+            <a href={download('studio', 'avatar-800.png')} download>Mark (PNG)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    {products.map((p) => <section class="product">
+      <div class="identity">
+        {p.icon && (typeof p.icon.src === 'string'
+          ? <img class="icon" src={p.icon.src} width="80" height="80" alt="" loading="lazy" />
+          : <Picture class="icon" src={p.icon.src} width={64} widths={[64, 128]} sizes="64px" alt="" formats={['avif', 'webp']} fallbackFormat="png" loading="lazy" />)}
+        <div><p class="meta">{statusLabel(p)}</p><h2>{p.name}</h2></div>
+      </div>
+      <div class="materials">
+        <p>{p.oneLine}</p>
+        {p.storeName && <p class="store-name">Listed on Google Play as {p.storeName}.</p>}
+        <div class="links">
+          <a href={local(p.slug + '/')}>Product page</a>
+          {p.link && <a href={p.platform === 'web' ? local(p.link) : storeUrl(p.link, 'press')}>{p.platform === 'web' ? 'Play the games' : 'Google Play'}</a>}
+          {p.icon && <a href={download(p.slug, p.icon.file)} download>Icon ({p.icon.file.endsWith('.svg') ? 'SVG' : 'PNG'})</a>}
+          {p.featureFile && <a href={download(p.slug, p.featureFile)} download>Feature graphic (PNG)</a>}
+        </div>
+        {!!p.screenshots.length && <div class="downloads">
+          <h3>Original screenshots</h3>
+          <ul role="list">
+            {p.screenshots.map((s) => <li><a href={download(p.slug, s.file)} download>
+              <ProductImage shot={s} sizes="(min-width: 960px) 145px, 27vw" />
+              <span>{s.label} <small>(PNG)</small></span>
+            </a></li>)}
+          </ul>
+        </div>}
+      </div>
+    </section>)}
+  </div>
+</Base>
+<style>
+  .studio, .product { padding-block: var(--section); }
+  .studio-details, .product { display: grid; gap: 2rem; }
+  .studio-details { margin-top: 2.5rem; }
+  h2 { margin: .25rem 0 .75rem; }
+  .studio-details p + p { color: var(--ink-2); margin-top: .3rem; }
+  .links { display: flex; align-items: center; flex-wrap: wrap; gap: 0 1.25rem; }
+  .links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 1rem; }
+  .mark { display: flex; align-items: center; gap: 1rem; }
+  .product { border-top: 1px solid var(--rule); }
+  .identity { display: flex; align-items: flex-start; gap: 1rem; }
+  .icon { width: 4rem; border-radius: .75rem; }
+  .store-name { color: var(--ink-2); font-size: .875rem; margin-block: .4rem; }
+  .downloads { margin-top: 2rem; }
+  ul { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  li a { display: block; font-size: .875rem; }
+  li :global(img) { width: 100%; border-radius: .65rem; border: 1px solid var(--rule); margin-bottom: .4rem; }
+  small { font-size: inherit; color: var(--ink-2); }
+  @media(min-width: 960px) {
+    .studio-details { grid-template-columns: 1fr 1fr; }
+    .product { grid-template-columns: var(--columns); column-gap: 1.5rem; }
+    .identity { grid-column: 1/5; }
+    .materials { grid-column: 6/-1; }
+    ul { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  }
+</style>

@@ -1,0 +1,12 @@
+---
+import type { Product } from '../data/products';
+interface Props { facts: Product['facts']; }
+const { facts } = Astro.props;
+---
+<dl>
+  {facts.map(([term, value]) => <div><dt>{term}</dt><dd>{value}</dd></div>)}
+</dl>
+<style>
+  dl > div { border-top: 1px solid var(--rule); padding: 1rem 0; display: grid; gap: .5rem; }
+  @media(min-width: 44rem) { dl > div { grid-template-columns: 1fr 2.3fr; gap: 1.5rem; } dt { padding-top: .28rem; } }
+</style>

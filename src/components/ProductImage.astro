@@ -1,0 +1,9 @@
+---
+import { Picture } from 'astro:assets';
+import type { Shot } from '../data/products';
+interface Props { shot: Shot; sizes: string; eager?: boolean; }
+const { shot, sizes, eager = false } = Astro.props;
+const widths = [192, 320, 480, 720, 960].filter((w) => w <= shot.src.width);
+---
+<Picture src={shot.src} alt={shot.alt} formats={['avif', 'webp']} fallbackFormat="png"
+  widths={widths} sizes={sizes} width={480} loading={eager ? 'eager' : 'lazy'} decoding="async" />

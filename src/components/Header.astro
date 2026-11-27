@@ -1,0 +1,23 @@
+---
+import { local, site } from '../data/site';
+---
+<header class="wrap">
+  <a class="brand" href={local()}>
+    <img src={local('favicon.svg')} alt="" width="24" height="24" />
+    {site.name}
+  </a>
+  <nav aria-label="Main navigation">
+    <a href={local('#products')}>Products</a>
+    <a href={local('press/')} aria-current={Astro.url.pathname === local('press/') ? 'page' : undefined}>Press</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<style>
+  header, nav, a { display: flex; align-items: center; }
+  header { min-height: 5rem; border-bottom: 1px solid var(--rule); justify-content: space-between; gap: 0 1rem; flex-wrap: wrap; }
+  .brand { gap: .55rem; font: 2rem/1 var(--serif); }
+  nav { gap: clamp(.8rem, 2.8vw, 2.5rem); }
+  a { min-height: 44px; font-size: .9375rem; text-decoration: none; }
+  a:hover, [aria-current] { text-decoration: underline; text-decoration-color: var(--ember); }
+  @media(max-width: 38rem) { header { min-height: 4.25rem; } nav a { font-size: .875rem; min-width: 44px; justify-content: center; } }
+</style>

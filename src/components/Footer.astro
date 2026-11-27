@@ -1,0 +1,21 @@
+---
+import { site } from '../data/site';
+---
+<footer id="contact">
+  <div class="wrap">
+    <div class="reach">
+      <a class="email" href={'mailto:' + site.email}>{site.email}</a>
+      <a class="text-link" href={site.youtube}>YouTube</a>
+    </div>
+    <div class="credits">
+      <p>Our apps are published on Google Play as {site.publisher}.</p>
+      <p>© {new Date().getUTCFullYear()} {site.name}</p>
+    </div>
+  </div>
+</footer>
+<style>
+  footer { background: var(--paper-2); border-top: 1px solid var(--rule); padding-block: var(--section) 2rem; }
+  .reach, .credits { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem 2rem; flex-wrap: wrap; }
+  .email { font: clamp(2.1rem, 6.1vw, 5.4rem)/1.15 var(--serif); min-height: 44px; overflow-wrap: anywhere; }
+  .credits { margin-top: 4rem; border-top: 1px solid var(--rule); padding-top: 1rem; font-size: .875rem; color: var(--ink-2); }
+</style>

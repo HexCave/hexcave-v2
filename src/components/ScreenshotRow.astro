@@ -1,0 +1,21 @@
+---
+import type { Product } from '../data/products';
+import ProductImage from './ProductImage.astro';
+interface Props { product: Product; }
+const { product: p } = Astro.props;
+---
+<section class="row" aria-label={p.name + ' screenshots'} tabindex="0">
+  {p.screenshots.map((s, i) => <figure>
+    <ProductImage shot={s} eager={i === 0} sizes="(min-width: 1280px) 384px, (min-width: 960px) 30vw, (min-width: 600px) 48vw, 78vw" />
+    <figcaption>{s.label}</figcaption>
+  </figure>)}
+</section>
+<style>
+  .row { display: grid; grid-auto-flow: column; grid-auto-columns: 80%; overflow-x: auto; scroll-snap-type: x mandatory;
+    gap: 1rem; scrollbar-width: thin; scrollbar-color: var(--ink-2) var(--paper-2); padding: 1px 1px 1rem; }
+  figure { min-width: 0; scroll-snap-align: start; }
+  figure :global(img) { width: 100%; border-radius: 20px; border: 1px solid var(--rule); }
+  figcaption { margin-top: .5rem; font-size: .875rem; color: var(--ink-2); }
+  @media (min-width: 600px) { .row { grid-auto-columns: 48%; } }
+  @media (min-width: 960px) { .row { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 1.5rem; } }
+</style>
