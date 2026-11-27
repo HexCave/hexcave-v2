@@ -122,7 +122,7 @@ product that demonstrates it (verify each against the sources before printing it
 | Hushcoil | Live, Google Play | `../hushcoil/README.md`, `../hushcoil/release/listing.md` | `https://play.google.com/store/apps/details?id=com.theonlyengineer.hushcoil` |
 | Ludo (Ludo Jaldi) | Live, Google Play | `../ludo/README.md`, `../ludo/docs/listing/store-listing.md` | `https://play.google.com/store/apps/details?id=com.theonlyengineer.ludo` |
 | Come Through | In development, not on any store | `../come-through/README.md` (the first section only: what it is and why) | none — say "In development" and offer the email |
-| Prism Games | Live, browser | `../prism/README.md`, `../prism/prism-games/index.json` | `https://hexcave.github.io/prism-games/` (check the page loads and what it shows before linking) |
+| Prism Games | Live, browser: 26 games, each playable at `https://hexcave.github.io/prism-games/games/<id>/<version>/` (verified 2026-11-28; the Pages root is a technical endpoint, never link it) | `../prism/README.md`, `../prism/prism-games/index.json` (title, tagline, description, version per game), `../prism/prism-games/games/<id>/cover.svg` | the per-game URLs |
 
 Store links append `&referrer=utm_source%3Dhexcave_site%26utm_medium%3Dproduct_page` (product page)
 or `…utm_medium%3Dhome` (home). Legal links: Hushcoil and Ludo have
@@ -144,7 +144,7 @@ mail once Zoho is set up after the domain transfer). Social: the YouTube channel
 | Hushcoil | `../hushcoil/release/art/icon-512.png` | `../hushcoil/release/screenshots/0*.png`, `../hushcoil/release/art/feature-graphic.png` |
 | Ludo | `../ludo/docs/listing/icon-512.png` | `../ludo/docs/listing/screenshots/*.png`, `../ludo/docs/listing/feature-graphic-1024x500.png` |
 | Come Through | convert `../come-through/app/src/main/res/drawable/ic_launcher_{background,foreground}.xml` to one SVG | none — the page is text and the icon; no mock screenshots |
-| Prism Games | none — set the name in type, or use one real game screenshot taken from the live site | real screenshots of 3–4 games from the live Prism site |
+| Prism Games | none — set the name in type | `src/assets/products/prism/{arrowlock,hex-drift,lumen,chess}.png` (real screenshots of the live games, 1280 × 800, taken 2026-11-28); each game's `cover.svg` for the games grid |
 | Studio | `../tools/brand/hexcave/mark.svg`, `avatar-800.png` | `../tools/brand/hexcave/banner-art.png` (Open Graph only) |
 
 ## 6. Page specifications
@@ -161,6 +161,14 @@ Name, one line, store button (or "In development"), 3–6 real screenshots in a 
 horizontally on phones, a short "what it is" paragraph, 3–5 facts as a definition list (not icon
 bullets), the principles that apply to it, and its legal links. Open Graph image: its feature
 graphic where one exists.
+
+### 6.2a Prism page — the games
+Prism has no player-facing front: its live root is a technical endpoint for a launcher extension.
+So its page is that front. Below the usual product content, a grid of all 26 games — cover, title,
+tagline — each opening the game itself in a new tab. The catalogue is a snapshot committed to this
+repo (`src/data/prism-games.json` and the covers in `src/assets/products/prism/covers/`), made
+from `../prism/prism-games/index.json` by a small script (`scripts/snapshot-prism.mjs`), because
+the site's CI cannot see the Prism repo. Re-run the script when Prism publishes.
 
 ### 6.3 Press
 Studio facts (name, one line, publisher name on Play, contact, YouTube), then per product: name,
