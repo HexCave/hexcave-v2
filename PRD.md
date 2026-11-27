@@ -108,8 +108,7 @@ product that demonstrates it (verify each against the sources before printing it
 
 - **No account needed.** Hushcoil and Ludo play with no sign-up; Come Through keeps its data on
   the phone.
-- **Works offline.** Hushcoil and Ludo's pass-and-play need no connection; Prism's launcher caches
-  games to play offline.
+- **Works offline.** Hushcoil plays with no connection; Ludo's pass-and-play does too.
 - **Ads only at natural pauses, if at all.** Hushcoil shows full-screen ads only at a level's end
   and never mid-puzzle; Ludo's interstitial comes at the end of a game.
 - **Original work.** Hushcoil's levels come from its own generator; names, art and sounds are
